@@ -1,1 +1,1 @@
-# 2025-Industry-Academic-Capstone-Design-Competition
+## 2025-Industry-Academic-Capstone-Design-Competition
