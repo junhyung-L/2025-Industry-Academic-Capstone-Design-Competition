@@ -1,4 +1,4 @@
-# 2025-Industry-Academic-Capstone-Design-Competition
+# 2025-1학 산학 캡스톤 디자인 경진대회
 ## 인천e음 카드 캐시백 정책 반응성 분석 및 전략 제언
 > 산학 캡스톤디자인 팀 **산경만지회**   
 > 기간: 2025.03.04 ~ 2025.06.20 
@@ -13,7 +13,7 @@
 ---
 
 ## 대회 정보
-- **대회명:** 2025-1학 산학 캡스톤 디자인 경진대
+- **대회명:** 2025-1학 산학 캡스톤 디자인 경진대회
 ![포스터](https://safety.inu.ac.kr/CrossEditor/binary/images/000182/[%ED%81%AC%EA%B8%B0%EB%B3%80%ED%99%98]2025-1_%EC%82%B0%ED%95%99_%EC%BA%A1%EC%8A%A4%ED%86%A4_%EB%94%94%EC%9E%90%EC%9D%B8_%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C_%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg)
 ---
 
