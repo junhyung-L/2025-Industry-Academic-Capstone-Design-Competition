@@ -26,6 +26,7 @@ This repository contains the award-winning project (**Gold Prize**) for the **20
 - **Vision**: "Maximizing policy efficiency through predictive simulation and ROI optimization."
 
 ![Incheon e-Eum Spending Trend](images/problem_definition.png)
+
 *Note: A sharp decline in both spending and new user sign-ups is observed immediately after the cashback reduction in August 2022.*
 
 ## 📊 2. Data Acquisition & Preprocessing (데이터 수집 및 전처리)
