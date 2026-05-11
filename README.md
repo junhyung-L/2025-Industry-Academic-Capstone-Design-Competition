@@ -3,9 +3,9 @@
 ## 📌 Project: Incheon e-Eum Card Cashback Policy Responsiveness Analysis & Strategic Suggestions
 
 ## 🚀 Executive Summary (TL;DR)
-- **The Problem**: 인천e음 캐시백 축소로 인한 **월간 소비액 24.92% 급감** 및 사용자 이탈 발생.
-- **The Solution**: 시계열 예측 모델(LightGBM, CatBoost)과 ROI 시뮬레이션을 결합한 **동적 캐시백 정책 수립 프레임워크** 개발.
-- **The Result**: 전 지역 **MAPE 10%~15%** 수준의 고정밀 예측 성공 및 66가지 시나리오 중 **최적의 예산 집행 타이밍 도출**.
+- **The Problem**: A reduction in cashback rates led to a **24.92% plunge in monthly spending** and significant user churn in the Incheon e-Eum ecosystem.
+- **The Solution**: Developed a **dynamic cashback policy framework** integrating advanced time-series forecasting (LightGBM, CatBoost) with ROI simulation.
+- **The Result**: Achieved high-precision forecasting with **MAPE of 10%~15%** across all regions and derived the **optimal budget execution timing** among 66 simulated scenarios.
 
 ## 🛠 Tech Stack
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
@@ -26,10 +26,11 @@ This repository contains the project files for the **2025 Industry-Academic Caps
 - **Vision**: "Maximizing policy efficiency through predictive simulation and ROI optimization."
 
 ![Incheon e-Eum Spending Trend](images/problem_definition.png)
+*Note: A sharp decline in both spending and new user sign-ups is observed immediately after the cashback reduction in August 2022.*
 
 ## 📊 2. Data Acquisition & Preprocessing (데이터 수집 및 전처리)
 
-- **Multi-Source Data Fusion**:
+- **Multi-Source Data Fusion**: To capture both macroeconomic trends and local consumer behaviors, we fused multi-source data:
   - **Transaction Data**: Daily/Monthly spending by region and industry.
   - **Demographics**: Age distribution by administrative district.
   - **Economic Indicators**: Consumer Sentiment Index (CSI), CD interest rates.
@@ -59,10 +60,11 @@ This repository contains the project files for the **2025 Industry-Academic Caps
 
 ## 🤖 4. Modeling & Evaluation (모델링 및 평가)
 
-- **Approach**: Implemented advanced Gradient Boosting models (LightGBM/CatBoost) trained on different policy periods (10% vs 5% cashback eras) to account for structural changes in consumer behavior.
+- **Approach**: Implemented advanced Gradient Boosting models (LightGBM/CatBoost) to handle non-linear spending patterns and high-cardinality regional features. Models were trained on different policy periods (10% vs 5% cashback eras) to account for structural changes in consumer behavior.
 - **Performance**: Achieved high precision with a **MAPE of 10% ~ 15%** across most regions, validating the model's reliability for policy simulation.
 
 ![Actual vs Predicted](images/05_20.png)
+*Note: The model tracks the actual spending trends closely across different policy regimes.*
 
 - **Refactored Module**: `src/model_training.py`
 
