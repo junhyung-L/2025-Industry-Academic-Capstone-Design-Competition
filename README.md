@@ -21,6 +21,9 @@ This repository contains the project files for the **2025 Industry-Academic Caps
   - **Demographics**: Age distribution by administrative district.
   - **Economic Indicators**: Consumer Sentiment Index (CSI), CD interest rates.
   - **Policy Data**: Cashback rates, new sign-ups, and charge counts.
+
+![Store vs Transaction Correlation](images/04_21.png)
+
 - **Refactored Modules**:
   - `src/data_preprocessing.py`: Automated cleaning and type conversion.
   - `src/feature_engineering.py`: Advanced feature extraction including Low-Pass Filter (LPF) for trend isolation.
@@ -29,6 +32,9 @@ This repository contains the project files for the **2025 Industry-Academic Caps
 
 - **Predictability Validation**: Calculated the **Hurst Exponent** for all regions, yielding high values of **0.79 to 0.86**. This proves that local spending patterns possess strong long-term directionality and are highly predictable.
 - **Economic Correlation**: Discovered that spending is highly correlated with forward-looking indices like **Job Prospect CSI (0.235)** and **Interest Rate Prospect CSI (0.224)**, indicating a compensation-driven spending structure.
+
+![Feature Correlation Heatmap](images/06_5.png)
+
 - **Trend Extraction**: Applied a Low-Pass Filter (LPF) to remove noise and isolate the core spending trajectory.
 
 ![Time Series Decomposition & Trend](images/feat_0.png)
@@ -37,6 +43,9 @@ This repository contains the project files for the **2025 Industry-Academic Caps
 
 - **Approach**: Implemented advanced Gradient Boosting models (LightGBM/CatBoost) trained on different policy periods (10% vs 5% cashback eras) to account for structural changes in consumer behavior.
 - **Performance**: Achieved high precision with a **MAPE of 10% ~ 15%** across most regions, validating the model's reliability for policy simulation.
+
+![Actual vs Predicted](images/05_20.png)
+
 - **Refactored Module**: `src/model_training.py`
 
 ## 🔄 5. Policy Simulation & ROI Optimization (정책 시뮬레이션 및 ROI)
