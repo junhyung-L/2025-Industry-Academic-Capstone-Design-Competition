@@ -33,11 +33,16 @@ This repository contains the project files for the **2025 Industry-Academic Caps
 - **Predictability Validation**: Calculated the **Hurst Exponent** for all regions, yielding high values of **0.79 to 0.86**. This proves that local spending patterns possess strong long-term directionality and are highly predictable.
 - **Economic Correlation**: Discovered that spending is highly correlated with forward-looking indices like **Job Prospect CSI (0.235)** and **Interest Rate Prospect CSI (0.224)**, indicating a compensation-driven spending structure.
 
-![Feature Correlation Heatmap](images/06_5.png)
+![Feature Correlation Heatmap](images/03_2.png)
+
+- **Geospatial Analysis**: Visualized the distribution of stores and spending across Incheon's districts (Gun/Gu) using Folium choropleth maps to identify regional disparities.
+
+![Incheon Map Visualization](images/map.png)
 
 - **Trend Extraction**: Applied a Low-Pass Filter (LPF) to remove noise and isolate the core spending trajectory.
 
 ![Time Series Decomposition & Trend](images/feat_0.png)
+
 
 ## 🤖 4. Modeling & Evaluation (모델링 및 평가)
 
