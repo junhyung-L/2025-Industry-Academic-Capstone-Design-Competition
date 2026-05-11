@@ -24,7 +24,7 @@ This repository contains the project files for the **2025 Industry-Academic Caps
 - **Objective**: To transition from a fixed, experience-based operation to a **strategic, data-driven cashback policy** that maximizes consumer spending stimulus within a limited budget.
 - **Vision**: "Maximizing policy efficiency through predictive simulation and ROI optimization."
 
-![Incheon e-Eum Spending Trend](images/03_2.png)
+![Incheon e-Eum Spending Trend](images/problem_definition.png)
 
 ## 📊 2. Data Acquisition & Preprocessing (데이터 수집 및 전처리)
 
