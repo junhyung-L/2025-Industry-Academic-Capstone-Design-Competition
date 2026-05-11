@@ -2,6 +2,18 @@
 
 ## 📌 Project: Incheon e-Eum Card Cashback Policy Responsiveness Analysis & Strategic Suggestions
 
+## 🚀 Executive Summary (TL;DR)
+- **The Problem**: 인천e음 캐시백 축소로 인한 **월간 소비액 24.92% 급감** 및 사용자 이탈 발생.
+- **The Solution**: 시계열 예측 모델(LightGBM, CatBoost)과 ROI 시뮬레이션을 결합한 **동적 캐시백 정책 수립 프레임워크** 개발.
+- **The Result**: 전 지역 **MAPE 10%~15%** 수준의 고정밀 예측 성공 및 66가지 시나리오 중 **최적의 예산 집행 타이밍 도출**.
+
+## 🛠 Tech Stack
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+![Scikit-Learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![CatBoost](https://img.shields.io/badge/CatBoost-FFCC00?style=for-the-badge&logo=catboost&logoColor=black)
+![Folium](https://img.shields.io/badge/Folium-77B829?style=for-the-badge&logo=folium&logoColor=white)
+
 This repository contains the project files for the **2025 Industry-Academic Capstone Design Competition**. The project delivers a data-driven strategy to optimize the cashback policy of "Incheon e-Eum" (Incheon's local currency), shifting from a passive, budget-draining approach to a proactive, ROI-driven simulation framework.
 
 ---
@@ -12,7 +24,7 @@ This repository contains the project files for the **2025 Industry-Academic Caps
 - **Objective**: To transition from a fixed, experience-based operation to a **strategic, data-driven cashback policy** that maximizes consumer spending stimulus within a limited budget.
 - **Vision**: "Maximizing policy efficiency through predictive simulation and ROI optimization."
 
-![Incheon e-Eum Spending Trend](images/eda_0.png)
+![Incheon e-Eum Spending Trend](images/03_2.png)
 
 ## 📊 2. Data Acquisition & Preprocessing (데이터 수집 및 전처리)
 
