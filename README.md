@@ -69,10 +69,28 @@ This repository contains the project files for the **2025 Industry-Academic Caps
 │   ├── feature_engineering.py   # LPF, trend, and time-series features
 │   └── model_training.py        # CatBoost training pipeline
 │
-└── reports/                     # Competition Reports
-    ├── 2025년 산학 캡스톤디자인 발표자료_산경만지회.pdf
-    └── 2025년 산학 캡스톤디자인 최종 결과보고서_산경만지회.pdf
+├── reports/                     # Competition Reports
+│   ├── 2025년 산학 캡스톤디자인 발표자료_산경만지회.pdf
+│   └── 2025년 산학 캡스톤디자인 최종 결과보고서_산경만지회.pdf
+│
+├── run_pipeline.py             # Master pipeline runner
+└── requirements.txt            # Project dependencies
 ```
+
+## ⚙️ How to Run
+
+1. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Run the full pipeline:
+   ```bash
+   python run_pipeline.py
+   ```
+
+## 👥 Contributors
+
+- **Junhyung L.** (Project Lead / Data Scientist)
 
 ---
 *Refactored and polished to meet professional software engineering standards for the [Data Analyst Portfolio](https://github.com/junhyung-L).*
