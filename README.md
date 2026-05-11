@@ -1,4 +1,4 @@
-# 🎓 2025 Industry-Academic Capstone Design Competition
+# 🏆 Gold Prize: 2025 Industry-Academic Capstone Design Competition
 
 ## 📌 Project: Incheon e-Eum Card Cashback Policy Responsiveness Analysis & Strategic Suggestions
 
@@ -15,7 +15,7 @@
 ![LightGBM](https://img.shields.io/badge/LightGBM-33A652?style=for-the-badge)
 ![Folium](https://img.shields.io/badge/Folium-77B829?style=for-the-badge&logo=folium&logoColor=white)
 
-This repository contains the project files for the **2025 Industry-Academic Capstone Design Competition**. The project delivers a data-driven strategy to optimize the cashback policy of "Incheon e-Eum" (Incheon's local currency), shifting from a passive, budget-draining approach to a proactive, ROI-driven simulation framework.
+This repository contains the award-winning project (**Gold Prize**) for the **2025 Industry-Academic Capstone Design Competition** at **Incheon National University**. The project delivers a data-driven strategy to optimize the cashback policy of "Incheon e-Eum" (Incheon's local currency), shifting from a passive, budget-draining approach to a proactive, ROI-driven simulation framework.
 
 ---
 
