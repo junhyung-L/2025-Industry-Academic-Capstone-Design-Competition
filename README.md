@@ -12,6 +12,8 @@ This repository contains the project files for the **2025 Industry-Academic Caps
 - **Objective**: To transition from a fixed, experience-based operation to a **strategic, data-driven cashback policy** that maximizes consumer spending stimulus within a limited budget.
 - **Vision**: "Maximizing policy efficiency through predictive simulation and ROI optimization."
 
+![Incheon e-Eum Spending Trend](images/eda_0.png)
+
 ## 📊 2. Data Acquisition & Preprocessing (데이터 수집 및 전처리)
 
 - **Multi-Source Data Fusion**:
@@ -28,6 +30,8 @@ This repository contains the project files for the **2025 Industry-Academic Caps
 - **Predictability Validation**: Calculated the **Hurst Exponent** for all regions, yielding high values of **0.79 to 0.86**. This proves that local spending patterns possess strong long-term directionality and are highly predictable.
 - **Economic Correlation**: Discovered that spending is highly correlated with forward-looking indices like **Job Prospect CSI (0.235)** and **Interest Rate Prospect CSI (0.224)**, indicating a compensation-driven spending structure.
 - **Trend Extraction**: Applied a Low-Pass Filter (LPF) to remove noise and isolate the core spending trajectory.
+
+![Time Series Decomposition & Trend](images/feat_0.png)
 
 ## 🤖 4. Modeling & Evaluation (모델링 및 평가)
 
