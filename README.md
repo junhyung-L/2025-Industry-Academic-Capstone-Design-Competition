@@ -113,7 +113,13 @@ graph TD
   - **Novelty Effect**: The spending response is maximized at the *first change* after a long period of rate maintenance.
 
 ## 🏁 6. Conclusion & Business Impact (결론 및 비즈니스 임팩트)
-- **Regional Differentiation**: Recommended shifting low-response regions (e.g., Ganghwa, Ongjin) from direct cashback subsidies to indirect marketing support, while concentrating budget on high-response urban centers.
+
+### 💡 Actionable Policy Recommendations (실행 가능한 정책 제안)
+Based on the simulation of 66 policy scenarios, we recommend the following strategic interventions for the Incheon e-Eum program:
+1. **Targeted Timing**: Concentrate the limited 10% cashback budget in **May and September** (right before peak spending seasons) to maximize the leverage effect on consumer spending.
+2. **Regional Differentiation**: Shift low-response regions (e.g., Ganghwa, Ongjin) from direct cashback subsidies to indirect marketing support, while concentrating budget on high-response urban centers.
+3. **Novelty Effect Utilization**: Avoid continuous small rate changes. Implement a single, large rate change after a long maintenance period to maximize the consumer psychological response.
+
 - **ROI Framework**: Established a standardized "Unit Month ROI" calculation system and benchmark to guide future policy interventions.
 
 ---
