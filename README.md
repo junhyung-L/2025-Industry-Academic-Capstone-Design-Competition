@@ -1,7 +1,8 @@
-# 🏆 Gold Prize: 2025 Industry-Academic Capstone Design Competition
+# Incheon e-Eum Card Cashback Policy Responsiveness Analysis & Strategic Suggestions
 
-## 📌 Project: Incheon e-Eum Card Cashback Policy Responsiveness Analysis & Strategic Suggestions
-
+[![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/)
+[![LightGBM](https://img.shields.io/badge/LightGBM-33A652?style=flat)](https://lightgbm.readthedocs.io/)
+[![Status](https://img.shields.io/badge/Status-Completed-success.svg)]()
 This repository contains the award-winning project (**Gold Prize**) for the **2025 Industry-Academic Capstone Design Competition** at **Incheon National University**. The project delivers a data-driven strategy to optimize the cashback policy of "Incheon e-Eum" (Incheon's local currency), shifting from a passive, budget-draining approach to a proactive, ROI-driven simulation framework.
 
 ## 🚀 Executive Summary (TL;DR)
@@ -10,17 +11,14 @@ This repository contains the award-winning project (**Gold Prize**) for the **20
 - **The Result**: Achieved high-precision forecasting with **MAPE of 10%~15%** across all regions and derived the **optimal budget execution timing** among 66 simulated scenarios.
 
 ## 🛠 Tech Stack
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
-![Scikit-Learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
-![CatBoost](https://img.shields.io/badge/CatBoost-FFCC00?style=for-the-badge&logo=catboost&logoColor=black)
-![LightGBM](https://img.shields.io/badge/LightGBM-33A652?style=for-the-badge)
-![Folium](https://img.shields.io/badge/Folium-77B829?style=for-the-badge&logo=folium&logoColor=white)
+- **Time-Series Forecasting**: LightGBM, CatBoost
+- **Data Processing**: Pandas, NumPy
+- **Visualization**: Folium (Choropleth Maps)
+- **Signal Processing**: Low-Pass Filter (LPF) for Trend Extraction
 
 ---
 
 ## 🔬 1. Problem Definition (문제 정의)
-
 - **Background**: Incheon e-Eum was successful with a 10% cashback rate, but budget cuts forced a reduction to 5% in August 2022, leading to a **24.92% drop in monthly spending** and user churn.
 - **Objective**: To transition from a fixed, experience-based operation to a **strategic, data-driven cashback policy** that maximizes consumer spending stimulus within a limited budget.
 - **Vision**: "Maximizing policy efficiency through predictive simulation and ROI optimization."
@@ -30,7 +28,6 @@ This repository contains the award-winning project (**Gold Prize**) for the **20
 *Note: A sharp decline in both spending and new user sign-ups is observed immediately after the cashback reduction in August 2022.*
 
 ## 📊 2. Data Acquisition & Preprocessing (데이터 수집 및 전처리)
-
 - **Multi-Source Data Fusion**: To capture both macroeconomic trends and local consumer behaviors, we fused multi-source data:
   - **Transaction Data**: Daily/Monthly spending by region and industry.
   - **Demographics**: Age distribution by administrative district.
@@ -44,7 +41,6 @@ This repository contains the award-winning project (**Gold Prize**) for the **20
   - `src/feature_engineering.py`: Advanced feature extraction including Low-Pass Filter (LPF) for trend isolation.
 
 ## 📈 3. Statistical Analysis & Insights (통계 분석 및 인사이트)
-
 - **Predictability Validation**: Calculated the **Hurst Exponent** for all regions, yielding high values of **0.79 to 0.86**. This proves that local spending patterns possess strong long-term directionality and are highly predictable.
 - **Economic Correlation**: Discovered that spending is highly correlated with forward-looking indices like **Job Prospect CSI (0.235)** and **Interest Rate Prospect CSI (0.224)**, indicating a compensation-driven spending structure.
 
@@ -58,9 +54,7 @@ This repository contains the award-winning project (**Gold Prize**) for the **20
 
 ![Time Series Decomposition & Trend](images/feat_0.png)
 
-
 ## 🤖 4. Modeling & Evaluation (모델링 및 평가)
-
 - **Approach**: Implemented advanced Gradient Boosting models (LightGBM/CatBoost) to handle non-linear spending patterns and high-cardinality regional features. Models were trained on different policy periods (10% vs 5% cashback eras) to account for structural changes in consumer behavior.
 - **Performance**: Achieved high precision with a **MAPE of 10% ~ 15%** across most regions, validating the model's reliability for policy simulation.
 
@@ -70,7 +64,6 @@ This repository contains the award-winning project (**Gold Prize**) for the **20
 - **Refactored Module**: `src/model_training.py`
 
 ## 🔄 5. Policy Simulation & ROI Optimization (정책 시뮬레이션 및 ROI)
-
 - **Simulation Design**: Assuming a budget constraint allowing only 2 months of cashback increase (to 10%) in 2024, we simulated all **66 possible combinations** ($C_{12, 2}$) to identify the highest Return on Investment (ROI).
 - **Key Strategic Findings**:
   - **Timing Strategy**: Raising cashback *just before* the spending trajectory hits rock bottom yields the highest ROI.
@@ -78,13 +71,10 @@ This repository contains the award-winning project (**Gold Prize**) for the **20
   - **Novelty Effect**: The spending response is maximized at the *first change* after a long period of rate maintenance.
 
 ## 🏁 6. Conclusion & Business Impact (결론 및 비즈니스 임팩트)
-
 - **Regional Differentiation**: Recommended shifting low-response regions (e.g., Ganghwa, Ongjin) from direct cashback subsidies to indirect marketing support, while concentrating budget on high-response urban centers.
 - **ROI Framework**: Established a standardized "Unit Month ROI" calculation system and benchmark to guide future policy interventions.
 
 ---
-
-### 📂 Repository Structure
 
 ```text
 ├── notebooks/                   # Sequential Pipeline Notebooks
@@ -112,7 +102,6 @@ This repository contains the award-winning project (**Gold Prize**) for the **20
 ```
 
 ## ⚙️ How to Run
-
 1. Install dependencies:
    ```bash
    pip install -r requirements.txt
@@ -127,3 +116,4 @@ This repository contains the award-winning project (**Gold Prize**) for the **20
 
 ---
 *Refactored and polished to meet professional software engineering standards for the [Data Analyst Portfolio](https://github.com/junhyung-L/Resume/blob/main/Portfolio/README.md).*
+
