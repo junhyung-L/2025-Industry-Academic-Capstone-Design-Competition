@@ -30,7 +30,7 @@ The project delivers a data-driven strategy to optimize the cashback policy of "
 
 *Note: A sharp decline in both spending and new user sign-ups is observed immediately after the cashback reduction in August 2022.*
 
-> ```mermaid
+```mermaid
 graph TD
     A[01 Data Concatenation] --> B[02 Data Preprocessing]
     B --> C[03 Feature Engineering]
