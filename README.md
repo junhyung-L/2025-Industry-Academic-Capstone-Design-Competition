@@ -1,7 +1,7 @@
 # 🏆 Incheon e-Eum Card Cashback Policy Responsiveness Analysis & Strategic Suggestions
 
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/)
-[![LightGBM](https://img.shields.io/badge/LightGBM-33A652?style=flat)](https://lightgbm.readthedocs.io/)
+[![Scikit-Learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![Status](https://img.shields.io/badge/Status-Completed-success.svg)]()
 
 This repository contains the award-winning project (**Gold Prize**) for the **2025 Industry-Academic Capstone Design Competition** at **Incheon National University**. 
