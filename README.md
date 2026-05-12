@@ -4,7 +4,9 @@
 [![LightGBM](https://img.shields.io/badge/LightGBM-33A652?style=flat)](https://lightgbm.readthedocs.io/)
 [![Status](https://img.shields.io/badge/Status-Completed-success.svg)]()
 
-This repository contains the award-winning project (**Gold Prize**) for the **2025 Industry-Academic Capstone Design Competition** at **Incheon National University**. The project delivers a data-driven strategy to optimize the cashback policy of "Incheon e-Eum" (Incheon's local currency), shifting from a passive, budget-draining approach to a proactive, ROI-driven simulation framework.
+This repository contains the award-winning project (**Gold Prize**) for the **2025 Industry-Academic Capstone Design Competition** at **Incheon National University**. 
+
+The project delivers a data-driven strategy to optimize the cashback policy of "Incheon e-Eum" (Incheon's local currency), shifting from a passive, budget-draining approach to a proactive, ROI-driven simulation framework.
 
 ## 🚀 Executive Summary (TL;DR)
 - **The Problem**: A reduction in cashback rates led to a **24.92% plunge in monthly spending** and significant user churn in the Incheon e-Eum ecosystem.
