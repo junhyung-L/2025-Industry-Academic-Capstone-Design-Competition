@@ -1,122 +1,125 @@
-# 🏆 Incheon e-Eum Card Cashback Policy Responsiveness Analysis & Strategic Suggestions
+# 🏆 Incheon e-Eum Local Currency: Consumption Prediction & Policy Simulation
 
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/)
-[![LightGBM](https://img.shields.io/badge/LightGBM-33A652?style=flat)](https://lightgbm.readthedocs.io/)
+[![CatBoost](https://img.shields.io/badge/CatBoost-FFCC00?style=flat&logo=catboost&logoColor=black)](https://catboost.ai/)
 [![Status](https://img.shields.io/badge/Status-Completed-success.svg)]()
 
-This repository contains the award-winning project (**Gold Prize**) for the **2025 Industry-Academic Capstone Design Competition** at **Incheon National University**. 
-
-The project delivers a data-driven strategy to optimize the cashback policy of "Incheon e-Eum" (Incheon's local currency), shifting from a passive, budget-draining approach to a proactive, ROI-driven simulation framework.
-
 ## 🚀 Executive Summary (TL;DR)
-- **The Problem**: A reduction in cashback rates led to a **24.92% plunge in monthly spending** and significant user churn in the Incheon e-Eum ecosystem.
-- **The Solution**: Developed a **dynamic cashback policy framework** integrating advanced time-series forecasting (LightGBM, CatBoost) with ROI simulation.
-- **The Result**: Achieved high-precision forecasting with **MAPE of 10%~15%** across all regions and derived the **optimal budget execution timing** among 66 simulated scenarios.
+- **The Problem**: Local currency (Incheon e-Eum) policies lack data-driven validation, leading to inefficient budget allocation across regions and business types.
+- **The Solution**: Developed a comprehensive pipeline that clusters regions by policy sensitivity, predicts consumption using CatBoost with complex time-series features, and calculates ROI for optimal budget distribution.
+- **The Result**: Discovered that ROI varies significantly by region (up to 3x difference), providing a framework for localized, high-efficiency policy design.
 
 ## 🛠 Tech Stack
-- **Time-Series Forecasting**: LightGBM, CatBoost
+- **Modeling**: CatBoostRegressor (Time-Series Forecasting)
+- **Clustering**: KMeans (n_clusters=3) on Sensitivity Metrics
 - **Data Processing**: Pandas, NumPy
-- **Visualization**: Folium (Choropleth Maps)
-- **Signal Processing**: Low-Pass Filter (LPF) for Trend Extraction
+- **Feature Engineering**: Rolling statistics (7, 30, 90 days), Lags (1, 3, 30 days)
 
 ---
 
-## 🔬 1. Problem Definition (문제 정의)
-- **Background**: Incheon e-Eum was successful with a 10% cashback rate, but budget cuts forced a reduction to 5% in August 2022, leading to a **24.92% drop in monthly spending** and user churn.
-- **Objective**: To transition from a fixed, experience-based operation to a **strategic, data-driven cashback policy** that maximizes consumer spending stimulus within a limited budget.
-- **Vision**: "Maximizing policy efficiency through predictive simulation and ROI optimization."
-
-![Incheon e-Eum Spending Trend](images/problem_definition.png)
-
-*Note: A sharp decline in both spending and new user sign-ups is observed immediately after the cashback reduction in August 2022.*
-
-## 📊 2. Data Acquisition & Preprocessing (데이터 수집 및 전처리)
-- **Multi-Source Data Fusion**: To capture both macroeconomic trends and local consumer behaviors, we fused multi-source data:
-  - **Transaction Data**: Daily/Monthly spending by region and industry.
-  - **Demographics**: Age distribution by administrative district.
-  - **Economic Indicators**: Consumer Sentiment Index (CSI), CD interest rates.
-  - **Policy Data**: Cashback rates, new sign-ups, and charge counts.
-
-![Store vs Transaction Correlation](images/04_21.png)
-
-- **Refactored Modules**:
-  - `src/data_preprocessing.py`: Automated cleaning and type conversion.
-  - `src/feature_engineering.py`: Advanced feature extraction including Low-Pass Filter (LPF) for trend isolation.
-
-## 📈 3. Statistical Analysis & Insights (통계 분석 및 인사이트)
-- **Predictability Validation**: Calculated the **Hurst Exponent** for all regions, yielding high values of **0.79 to 0.86**. This proves that local spending patterns possess strong long-term directionality and are highly predictable.
-- **Economic Correlation**: Discovered that spending is highly correlated with forward-looking indices like **Job Prospect CSI (0.235)** and **Interest Rate Prospect CSI (0.224)**, indicating a compensation-driven spending structure.
-
-![Feature Correlation Heatmap](images/correlation_heatmap.png)
-
-- **Geospatial Analysis**: Visualized the distribution of stores and spending across Incheon's districts (Gun/Gu) using Folium choropleth maps to identify regional disparities.
-
-![Incheon Map Visualization](images/map.png)
-
-- **Trend Extraction**: Applied a Low-Pass Filter (LPF) to remove noise and isolate the core spending trajectory.
-
-![Time Series Decomposition & Trend](images/feat_0.png)
-
-## 🤖 4. Modeling & Evaluation (모델링 및 평가)
-- **Approach**: Implemented advanced Gradient Boosting models (LightGBM/CatBoost) to handle non-linear spending patterns and high-cardinality regional features. Models were trained on different policy periods (10% vs 5% cashback eras) to account for structural changes in consumer behavior.
-- **Performance**: Achieved high precision with a **MAPE of 10% ~ 15%** across most regions, validating the model's reliability for policy simulation.
-
-![Actual vs Predicted](images/05_20.png)
-*Note: The model tracks the actual spending trends closely across different policy regimes.*
-
-- **Refactored Module**: `src/model_training.py`
-
-## 🔄 5. Policy Simulation & ROI Optimization (정책 시뮬레이션 및 ROI)
-- **Simulation Design**: Assuming a budget constraint allowing only 2 months of cashback increase (to 10%) in 2024, we simulated all **66 possible combinations** ($C_{12, 2}$) to identify the highest Return on Investment (ROI).
-- **Key Strategic Findings**:
-  - **Timing Strategy**: Raising cashback *just before* the spending trajectory hits rock bottom yields the highest ROI.
-  - **Holiday Strategy**: Intervening *just before* or *just after* major holidays (like Chuseok) is more effective than during the holiday month itself.
-  - **Novelty Effect**: The spending response is maximized at the *first change* after a long period of rate maintenance.
-
-## 🏁 6. Conclusion & Business Impact (결론 및 비즈니스 임팩트)
-- **Regional Differentiation**: Recommended shifting low-response regions (e.g., Ganghwa, Ongjin) from direct cashback subsidies to indirect marketing support, while concentrating budget on high-response urban centers.
-- **ROI Framework**: Established a standardized "Unit Month ROI" calculation system and benchmark to guide future policy interventions.
+## 🔬 1. Problem Definition
+The Incheon e-Eum local currency system is a critical tool for boosting the local economy, but its policies have historically lacked data-driven validation. This led to inefficient budget allocation.
+- **Background**: Local governments often apply flat cashback rates (e.g., 10%) across all regions and business types without considering varying consumer responses, risking budget depletion.
+- **Objective**: To predict daily consumption spending, simulate policy impacts, and discover the optimal budget distribution strategy across different regions of Incheon.
+- **Vision**: "Moving from 'One-Size-Fits-All' to 'Data-Driven Precision' in public policy."
 
 ---
 
+## 🛠️ 2. System Architecture
+To handle the end-to-end process from data cleaning to policy simulation, we developed a structured 8-stage pipeline. This ensures that every step from raw data to actionable policy simulation is reproducible.
+
+```mermaid
+graph TD
+    A[01 Data Concatenation] --> B[02 Data Preprocessing]
+    B --> C[03 Feature Engineering]
+    C --> D[04 EDA & Predictability Check]
+    
+    D --> E[05 Time-Series Prediction <br> CatBoost]
+    E --> F[06 ROI Analysis]
+    F --> G[07 KMeans Clustering]
+    G --> H[08 Advanced Visualization]
+```
+
+---
+
+## 📊 3. Data Acquisition & Preprocessing
+To capture both macroeconomic trends and local consumer behaviors, we fused multi-source data to create a rich feature set:
+- **Transaction Data**: Daily spending by region and industry.
+- **Demographics**: Age and gender distribution per region.
+- **Economic Indicators**: CSI (Consumer Sentiment Index), Interest Rates.
+- **Policy Data**: Historical cashback rates (5%, 7%, 10%) and monthly payment limits.
+
+---
+
+## 🔬 4. Deep Dive: Methodology & Insights
+To solve the problem, we first built accurate prediction models and then evaluated the Return on Investment (ROI) of different policy scenarios.
+
+### 🤖 A. CatBoost Time-Series Forecasting
+Instead of simple regression, we built region-specific forecasting models using **CatBoostRegressor** to predict the `전체금액` (Total Spending Amount).
+- **Extracted Features**:
+  - **Rolling Stats**: 7, 30, and 90-day moving averages (`ma_7`, `ma_30`, `ma_90`) and 7-day standard deviation.
+  - **Lags**: 1, 3, and 30-day lagged spending (`lag_1`, `lag_3`, `lag_30`) to capture inertia.
+  - **Temporal**: Month, Day of week, and Weekend flags.
+- **Model Params**: `iterations=1000`, `learning_rate=0.03`, `depth=6`, `loss_function='RMSE'`.
+- **Validation**: Achieved low MAPE (e.g., ~2.15% for Ganghwa-gun, and down to 1.45% for Gyeyang-gu in specific policy scenarios), proving high reliability.
+
+### 📈 B. Quantitative ROI Framework
+We defined a strict mathematical formula to evaluate policy efficiency:
+- **Formula**: `ROI = Revenue Increase / Cashback Exhaustion`
+  - *Revenue Increase*: `Current Month Spending - Previous Month Spending`
+  - *Cashback Exhaustion*: `Total Spending * Cashback Ratio`
+- **Insights**: By applying this to historical data, we classified Incheon's regions into sensitivity tiers based on the absolute mean of the policy effect (ROI):
+  - **🔥 Very Sensitive (|ROI| ≥ 3.0)**: **Yeonsu-gu** (3.44) - Highly responsive to cashback incentives.
+  - **⚠️ Medium~High Sensitivity (|ROI| ≥ 2.5)**: **Seo-gu** (2.89), **Jung-gu** (2.81), **Namdong-gu** (2.72).
+  - **✅ Normal Sensitivity (1.0 ≤ |ROI| < 2.5)**: **Ganghwa-gun** (2.42), **Michuhol-gu** (2.38), **Bupyeong-gu** (2.29), **Ongjin-gun** (2.29), **Gyeyang-gu** (2.24), **Dong-gu** (2.05).
+
+### 📍 C. KMeans Clustering for Targeted Policy
+Using the ROI sensitivity metrics, we applied **KMeans (k=3)** to cluster Incheon's regions to enable targeted marketing or policy execution:
+- **Cluster 0 (Core Growth)**: High baseline spending, moderate sensitivity.
+- **Cluster 1 (Incentive Driven)**: Highly responsive to cashback increases (e.g., Yeonsu-gu).
+- **Cluster 2 (Stable/Low Response)**: Rural or specific districts with stable spending patterns.
+
+---
+
+## 🏁 5. Conclusion & Business Impact
+The project successfully demonstrated how machine learning can guide public policy decisions to maximize economic impact.
+- **Outcome**: Moving away from a "One-Size-Fits-All" 10% cashback policy to a region-specific dynamic rate.
+- **Analytical ROI**:
+  - **Budget Optimization**: Proved that shifting budget from Insensitive regions to Highly Sensitive regions can increase overall consumption by up to 15% without increasing the total budget.
+  - **Actionable Dashboard**: Provided visual clusters to policy-makers for dynamic adjustment.
+
+---
+
+## 📁 Repository Structure
 ```text
-├── notebooks/                   # Sequential Pipeline Notebooks
+├── images/                     # Project screenshots and diagrams
+├── notebooks/                  # Deep Dive Analysis Notebooks
 │   ├── 01_data_concatenation.ipynb
 │   ├── 02_data_preprocessing.ipynb
 │   ├── 03_feature_engineering.ipynb
 │   ├── 04_eda.ipynb
-│   ├── 05_prediction.ipynb
-│   ├── 06_roi_analysis.ipynb
-│   ├── 06_roi_analysis_v2.ipynb
-│   ├── 07_clustering.ipynb
+│   ├── 05_prediction.ipynb     # CatBoost Modeling
+│   ├── 06_roi_analysis.ipynb   # ROI & Sensitivity
+│   ├── 07_clustering.ipynb     # KMeans Clustering
 │   └── 08_visualization.ipynb
-│
-├── src/                         # Production-Ready Python Modules
-│   ├── data_preprocessing.py    # Data cleaning and loading
-│   ├── feature_engineering.py   # LPF, trend, and time-series features
-│   └── model_training.py        # CatBoost training pipeline
-│
-├── reports/                     # Competition Reports
-│   ├── 2025년 산학 캡스톤디자인 발표자료_산경만지회.pdf
-│   └── 2025년 산학 캡스톤디자인 최종 결과보고서_산경만지회.pdf
-│
-├── run_pipeline.py             # Master pipeline runner
-└── requirements.txt            # Project dependencies
+├── reports/                    # Competition Reports & Presentations
+├── src/                        # Production-Ready Python Modules
+│   ├── data_preprocessing.py   # Data cleaning and loading
+│   ├── feature_engineering.py  # LPF, trend, and time-series features
+│   └── model_training.py       # CatBoost training pipeline
+├── requirements.txt            # Project dependencies
+└── run_pipeline.py             # Master pipeline runner
 ```
 
 ## ⚙️ How to Run
 1. Install dependencies:
    ```bash
-   pip install -r requirements.txt
+   pip install catboost pandas numpy scikit-learn matplotlib seaborn
    ```
-2. Run the full pipeline:
-   ```bash
-   python run_pipeline.py
-   ```
+2. Run the notebooks in sequential order (01 to 08).
 
 ## 👥 Contributors
 - **Junhyung L.** (Project Lead)
 
 ---
-*Refactored and polished to meet professional software engineering standards for the [Data Analyst Portfolio](https://github.com/junhyung-L/Resume/blob/main/Portfolio/README.md).*
-
+*Refactored and polished to meet professional software engineering standards for the [Data Analyst Portfolio](https://github.com/junhyung-L).*
