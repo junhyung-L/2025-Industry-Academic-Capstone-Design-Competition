@@ -21,6 +21,43 @@ The project delivers a data-driven strategy to optimize the cashback policy of "
 
 ---
 
+## 🗺️ Pipeline Architecture (파이프라인 아키텍처)
+
+```mermaid
+graph TD
+    subgraph Data_Sources [1. Multi-Source Data Acquisition]
+        A[Card Spending <br> 소비 데이터]
+        B[Demographics <br> 인구 통계]
+        C[CSI & Interest Rates <br> 거시 경제 지표]
+        D[Policy Variables <br> 정책 변수]
+    end
+
+    subgraph Core_Pipeline [2. Advanced Analytics Pipeline]
+        E[Data Fusion <br> 데이터 결합]
+        F[LPF Trend Extraction <br> 노이즈 제거]
+        G[Hurst Exponent Check <br> 예측 가능성 검증]
+    end
+
+    subgraph Modeling_Simulation [3. Predictive Simulation & ROI]
+        H[CatBoost / LightGBM <br> 시계열 예측]
+        I[66 Policy Scenarios <br> 시뮬레이션]
+        J[ROI Optimization <br> 예산 최적화]
+    end
+
+    A & B & C & D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    I --> J
+
+    style Data_Sources fill:#f9f,stroke:#333,stroke-width:2px
+    style Core_Pipeline fill:#bbf,stroke:#333,stroke-width:2px
+    style Modeling_Simulation fill:#bfb,stroke:#333,stroke-width:2px
+```
+
+---
+
 ## 🔬 1. Problem Definition (문제 정의)
 - **Background**: Incheon e-Eum was successful with a 10% cashback rate, but budget cuts forced a reduction to 5% in August 2022, leading to a **24.92% drop in monthly spending** and user churn.
 - **Objective**: To transition from a fixed, experience-based operation to a **strategic, data-driven cashback policy** that maximizes consumer spending stimulus within a limited budget.
@@ -29,18 +66,6 @@ The project delivers a data-driven strategy to optimize the cashback policy of "
 ![Incheon e-Eum Spending Trend](images/problem_definition.png)
 
 *Note: A sharp decline in both spending and new user sign-ups is observed immediately after the cashback reduction in August 2022.*
-
-```mermaid
-graph TD
-    A[01 Data Concatenation] --> B[02 Data Preprocessing]
-    B --> C[03 Feature Engineering]
-    C --> D[04 EDA & Predictability Check]
-    
-    D --> E[05 Time-Series Prediction <br> CatBoost]
-    E --> F[06 ROI Analysis]
-    F --> G[07 KMeans Clustering]
-    G --> H[08 Advanced Visualization]
-```
 
 ---
 
