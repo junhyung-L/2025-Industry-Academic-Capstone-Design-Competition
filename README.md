@@ -30,6 +30,20 @@ The project delivers a data-driven strategy to optimize the cashback policy of "
 
 *Note: A sharp decline in both spending and new user sign-ups is observed immediately after the cashback reduction in August 2022.*
 
+> ```mermaid
+graph TD
+    A[01 Data Concatenation] --> B[02 Data Preprocessing]
+    B --> C[03 Feature Engineering]
+    C --> D[04 EDA & Predictability Check]
+    
+    D --> E[05 Time-Series Prediction <br> CatBoost]
+    E --> F[06 ROI Analysis]
+    F --> G[07 KMeans Clustering]
+    G --> H[08 Advanced Visualization]
+```
+
+---
+
 ## 📊 2. Data Acquisition & Preprocessing (데이터 수집 및 전처리)
 - **Multi-Source Data Fusion**: To capture both macroeconomic trends and local consumer behaviors, we fused multi-source data:
   - **Transaction Data**: Daily/Monthly spending by region and industry.
