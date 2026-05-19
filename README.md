@@ -165,5 +165,5 @@ Based on the simulation of 66 policy scenarios, we recommend the following strat
 - **Junhyung L.** (Project Lead)
 
 ---
-*Refactored and polished to meet professional software engineering standards for the [Data Analyst Portfolio](https://github.com/junhyung-L/Resume/blob/main/Portfolio/README.md).*
+*Refactored and polished to meet professional software engineering standards for the [Data Analyst Portfolio](https://github.com/junhyung-L/Portfolio).*
 
