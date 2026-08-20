@@ -1,169 +1,95 @@
-# 🏆 Incheon e-Eum Card Cashback Policy Responsiveness Analysis & Strategic Suggestions
+# Incheon e-Eum Cashback Policy Simulation
 
-[![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/)
-[![Scikit-Learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
-[![Status](https://img.shields.io/badge/Status-Completed-success.svg)]()
-[![Award](https://img.shields.io/badge/Award-Gold_Prize-gold.svg)]()
+[한국어](README.ko.md)
 
+> [Project details](PORTFOLIO.md)
 
-This repository contains the award-winning project (**Gold Prize**) for the **2025 Industry-Academic Capstone Design Competition** at **Incheon National University**. 
+This repository contains an exploratory regional-spending forecasting workflow
+for Incheon e-Eum cashback-policy analysis. It includes the original notebooks
+and a maintained command-line path for chronological regional model holdouts.
 
-The project delivers a data-driven strategy to optimize the cashback policy of "Incheon e-Eum" (Incheon's local currency), shifting from a passive, budget-draining approach to a proactive, ROI-driven simulation framework.
+## Scope and result boundary
 
-## 🚀 Executive Summary (TL;DR)
-- **The Problem**: A reduction in cashback rates led to a **24.92% plunge in monthly spending** and significant user churn in the Incheon e-Eum ecosystem.
-- **The Solution**: Developed a **dynamic cashback policy framework** integrating advanced time-series forecasting (LightGBM, CatBoost) with ROI simulation.
-- **The Result**: Achieved high-precision forecasting with **MAPE of 10%~15%** across all regions and derived the **optimal budget execution timing** among 66 simulated scenarios.
+- **VERIFIED:** The maintained code loads a merged CSV, creates regional time
+  features, and fits CatBoost holdout models by region.
+- **USER_INPUT_REQUIRED:** The prior project narrative reports a Gold Prize,
+  a 24.92% spending decline, 10–15% MAPE, and 66 policy scenarios. The raw
+  source data, results, and award/score records are not retained here, so do
+  not use those figures as independently verified portfolio claims.
+- **NOT IMPLEMENTED:** The CLI forecasts regional spending; it does not prove
+  a causal effect of cashback-policy changes or execute an ROI optimizer.
 
-## 🛠 Tech Stack
-- **Time-Series Forecasting**: LightGBM, CatBoost
-- **Data Processing**: Pandas, NumPy
-- **Visualization**: Folium (Choropleth Maps)
-- **Signal Processing**: Low-Pass Filter (LPF) for Trend Extraction
-
----
-
-## 🗺️ Pipeline Architecture (파이프라인 아키텍처)
+## Implemented workflow
 
 ```mermaid
-graph TD
-    subgraph Data_Sources [1. Multi-Source Data Acquisition]
-        A[Card Spending <br> 소비 데이터]
-        B[Demographics <br> 인구 통계]
-        C[CSI & Interest Rates <br> 거시 경제 지표]
-        D[Policy Variables <br> 정책 변수]
-    end
-
-    subgraph Core_Pipeline [2. Advanced Analytics Pipeline]
-        E[Data Fusion <br> 데이터 결합]
-        F[LPF Trend Extraction <br> 노이즈 제거]
-        G[Hurst Exponent Check <br> 예측 가능성 검증]
-    end
-
-    subgraph Modeling_Simulation [3. Predictive Simulation & ROI]
-        H[CatBoost / LightGBM <br> 시계열 예측]
-        I[66 Policy Scenarios <br> 시뮬레이션]
-        J[ROI Optimization <br> 예산 최적화]
-    end
-
-    A & B & C & D --> E
-    E --> F
-    F --> G
-    G --> H
-    H --> I
-    I --> J
-
-    style Data_Sources fill:#f9f,stroke:#333,stroke-width:2px
-    style Core_Pipeline fill:#bbf,stroke:#333,stroke-width:2px
-    style Modeling_Simulation fill:#bfb,stroke:#333,stroke-width:2px
+flowchart LR
+    A[External merged CSV] --> B[Encoding fallback and schema validation]
+    B --> C[Date parsing, lag, rolling, and seasonal features]
+    C --> D[Chronological 80/20 holdout by region]
+    D --> E[CatBoost model per region]
+    E --> F[results/regional_metrics.csv]
+    E --> G[results/models/]
 ```
 
----
+The source notebooks retain additional preprocessing, LPF, EDA, policy,
+clustering, and visualization experiments. The command-line path implements a
+portable baseline rather than reproducing every notebook experiment.
 
-## 🔬 1. Problem Definition (문제 정의)
-- **Background**: Incheon e-Eum was successful with a 10% cashback rate, but budget cuts forced a reduction to 5% in August 2022, leading to a **24.92% drop in monthly spending** and user churn.
-- **Objective**: To transition from a fixed, experience-based operation to a **strategic, data-driven cashback policy** that maximizes consumer spending stimulus within a limited budget.
-- **Vision**: "Maximizing policy efficiency through predictive simulation and ROI optimization."
+## Retained visual evidence
 
-![Incheon e-Eum Spending Trend](images/problem_definition.png)
+![Incheon e-Eum spending, budget, and sign-up trend](images/problem_definition.png)
 
-*Note: A sharp decline in both spending and new user sign-ups is observed immediately after the cashback reduction in August 2022.*
+*Figure 1. Retained project visual showing the reported spending, budget, and
+new-sign-up trend. The annotated 24.92% change is a descriptive project result,
+not a causal estimate from the maintained CLI.*
 
----
+![Feature correlation heatmap](images/correlation_heatmap.png)
 
-## 📊 2. Data Acquisition & Preprocessing (데이터 수집 및 전처리)
-- **Multi-Source Data Fusion**: To capture both macroeconomic trends and local consumer behaviors, we fused multi-source data:
-  - **Transaction Data**: Daily/Monthly spending by region and industry.
-  - **Demographics**: Age distribution by administrative district.
-  - **Economic Indicators**: Consumer Sentiment Index (CSI), CD interest rates.
-  - **Policy Data**: Cashback rates, new sign-ups, and charge counts.
+*Figure 2. Correlation heatmap retained from the exploratory workflow. It is
+useful for feature inspection but does not establish a policy effect.*
 
-![Store vs Transaction Correlation](images/04_21.png)
+![One retained actual-versus-predicted view](images/05_20.png)
 
-- **Refactored Modules**:
-  - `src/data_preprocessing.py`: Automated cleaning and type conversion.
-  - `src/feature_engineering.py`: Advanced feature extraction including Low-Pass Filter (LPF) for trend isolation.
+*Figure 3. Retained actual-versus-predicted chart for one displayed
+configuration; its annotation reports RMSE 173,590,932.20 and MAPE 5.66%.
+This was not rerun from the current CLI and should not be represented as an
+all-region performance result.*
 
-## 📈 3. Statistical Analysis & Insights (통계 분석 및 인사이트)
-- **Predictability Validation**: Calculated the **Hurst Exponent** for all regions, yielding high values of **0.79 to 0.86**. This proves that local spending patterns possess strong long-term directionality and are highly predictable.
-- **Economic Correlation**: Discovered that spending is highly correlated with forward-looking indices like **Job Prospect CSI (0.235)** and **Interest Rate Prospect CSI (0.224)**, indicating a compensation-driven spending structure.
+## Run
 
-![Feature Correlation Heatmap](images/correlation_heatmap.png)
+Install dependencies:
 
-- **Geospatial Analysis**: Visualized the distribution of stores and spending across Incheon's districts (Gun/Gu) using Folium choropleth maps to identify regional disparities.
+```powershell
+pip install -r requirements.txt
+```
 
-![Incheon Map Visualization](images/map.png)
+Run the workflow with the original merged CSV and its actual column names:
 
-- **Trend Extraction**: Applied a Low-Pass Filter (LPF) to remove noise and isolate the core spending trajectory.
+```powershell
+python run_pipeline.py `
+  --input-csv data\merged.csv `
+  --region-col "<region column>" `
+  --date-col "<date column>" `
+  --target-col "<spending target column>"
+```
 
-![Time Series Decomposition & Trend](images/feat_0.png)
+The command writes generated features, per-region metrics, and fitted model
+files under `results/`. Raw data is not included in this repository.
 
-## 🤖 4. Modeling & Evaluation (모델링 및 평가)
-- **Approach**: Implemented advanced Gradient Boosting models (LightGBM/CatBoost) to handle non-linear spending patterns and high-cardinality regional features. Models were trained on different policy periods (10% vs 5% cashback eras) to account for structural changes in consumer behavior.
-- **Performance**: Achieved high precision with a **MAPE of 10% ~ 15%** across most regions, validating the model's reliability for policy simulation.
-
-![Actual vs Predicted](images/05_20.png)
-*Note: The model tracks the actual spending trends closely across different policy regimes.*
-
-- **Refactored Module**: `src/model_training.py`
-
-## 🔄 5. Policy Simulation & ROI Optimization (정책 시뮬레이션 및 ROI)
-- **Simulation Design**: Assuming a budget constraint allowing only 2 months of cashback increase (to 10%) in 2024, we simulated all **66 possible combinations** ($C_{12, 2}$) to identify the highest Return on Investment (ROI).
-- **Key Strategic Findings**:
-  - **Timing Strategy**: Raising cashback *just before* the spending trajectory hits rock bottom yields the highest ROI.
-  - **Holiday Strategy**: Intervening *just before* or *just after* major holidays (like Chuseok) is more effective than during the holiday month itself.
-  - **Novelty Effect**: The spending response is maximized at the *first change* after a long period of rate maintenance.
-
-## 🏁 6. Conclusion & Business Impact (결론 및 비즈니스 임팩트)
-
-### 💡 Actionable Policy Recommendations (실행 가능한 정책 제안)
-Based on the simulation of 66 policy scenarios, we recommend the following strategic interventions for the Incheon e-Eum program:
-1. **Targeted Timing**: Concentrate the limited 10% cashback budget in **May and September** (right before peak spending seasons) to maximize the leverage effect on consumer spending.
-2. **Regional Differentiation**: Shift low-response regions (e.g., Ganghwa, Ongjin) from direct cashback subsidies to indirect marketing support, while concentrating budget on high-response urban centers.
-3. **Novelty Effect Utilization**: Avoid continuous small rate changes. Implement a single, large rate change after a long maintenance period to maximize the consumer psychological response.
-
-- **ROI Framework**: Established a standardized "Unit Month ROI" calculation system and benchmark to guide future policy interventions.
-
----
+## Repository structure
 
 ```text
-├── notebooks/                   # Sequential Pipeline Notebooks
-│   ├── 01_data_concatenation.ipynb
-│   ├── 02_data_preprocessing.ipynb
-│   ├── 03_feature_engineering.ipynb
-│   ├── 04_eda.ipynb
-│   ├── 05_prediction.ipynb
-│   ├── 06_roi_analysis.ipynb
-│   ├── 06_roi_analysis_v2.ipynb
-│   ├── 07_clustering.ipynb
-│   └── 08_visualization.ipynb
-│
-├── src/                         # Production-Ready Python Modules
-│   ├── data_preprocessing.py    # Data cleaning and loading
-│   ├── feature_engineering.py   # LPF, trend, and time-series features
-│   └── model_training.py        # CatBoost training pipeline
-│
-├── reports/                     # Competition Reports
-│   ├── 2025년 산학 캡스톤디자인 발표자료_산경만지회.pdf
-│   └── 2025년 산학 캡스톤디자인 최종 결과보고서_산경만지회.pdf
-│
-├── run_pipeline.py             # Master pipeline runner
-└── requirements.txt            # Project dependencies
+src/config.py             # Paths and modelling defaults
+src/data_preprocessing.py # Original cleaning helper
+src/feature_engineering.py# Original notebook-derived features
+src/model_training.py     # Chronological per-region CatBoost training
+run_pipeline.py           # Maintained CLI entry point
+notebooks/                # Original analysis and simulation notebooks
 ```
 
-## ⚙️ How to Run
-1. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. Run the full pipeline:
-   ```bash
-   python run_pipeline.py
-   ```
+## Limitations and next steps
 
-## 👥 Contributors
-- **Junhyung L.** (Project Lead)
-
----
-*Refactored and polished to meet professional software engineering standards for the [Data Analyst Portfolio](https://github.com/junhyung-L/Portfolio).*
-
+- Add a permitted data schema or synthetic fixture and dependency versions.
+- Retain regional backtest metrics and a naive baseline.
+- Separate forecasting from causal policy-effect estimation before making ROI
+  or intervention claims.
